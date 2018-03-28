@@ -13,6 +13,11 @@
 		AFAE22A8206B79A200AB87DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFAE22A7206B79A200AB87DD /* Assets.xcassets */; };
 		AFAE22AB206B79A200AB87DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFAE22A9206B79A200AB87DD /* LaunchScreen.storyboard */; };
 		AFAE22AE206B79A200AB87DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22AD206B79A200AB87DD /* main.m */; };
+		AFAE22B7206B79DE00AB87DD /* LeaksManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22B6206B79DE00AB87DD /* LeaksManager.m */; };
+		AFAE22BA206B79FA00AB87DD /* ObjectLeakDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22B9206B79FA00AB87DD /* ObjectLeakDetector.m */; };
+		AFAE22BD206B7A3500AB87DD /* TLeakBeginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22BC206B7A3500AB87DD /* TLeakBeginViewController.m */; };
+		AFAE22C0206B7A5D00AB87DD /* UIViewController+Leaks.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22BF206B7A5D00AB87DD /* UIViewController+Leaks.m */; };
+		AFAE22C3206B7C4D00AB87DD /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAE22C2206B7C4D00AB87DD /* NSObject+Swizzling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,17 @@
 		AFAE22AA206B79A200AB87DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFAE22AC206B79A200AB87DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFAE22AD206B79A200AB87DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AFAE22B5206B79DE00AB87DD /* LeaksManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaksManager.h; sourceTree = "<group>"; };
+		AFAE22B6206B79DE00AB87DD /* LeaksManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaksManager.m; sourceTree = "<group>"; };
+		AFAE22B8206B79FA00AB87DD /* ObjectLeakDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectLeakDetector.h; sourceTree = "<group>"; };
+		AFAE22B9206B79FA00AB87DD /* ObjectLeakDetector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectLeakDetector.m; sourceTree = "<group>"; };
+		AFAE22BB206B7A3500AB87DD /* TLeakBeginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLeakBeginViewController.h; sourceTree = "<group>"; };
+		AFAE22BC206B7A3500AB87DD /* TLeakBeginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLeakBeginViewController.m; sourceTree = "<group>"; };
+		AFAE22BE206B7A5D00AB87DD /* UIViewController+Leaks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Leaks.h"; sourceTree = "<group>"; };
+		AFAE22BF206B7A5D00AB87DD /* UIViewController+Leaks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Leaks.m"; sourceTree = "<group>"; };
+		AFAE22C1206B7C4D00AB87DD /* NSObject+Swizzling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzling.h"; sourceTree = "<group>"; };
+		AFAE22C2206B7C4D00AB87DD /* NSObject+Swizzling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
+		AFAE22C4206B812500AB87DD /* TLeaksFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLeaksFinder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +74,13 @@
 		AFAE229D206B79A200AB87DD /* TPLeakFinder */ = {
 			isa = PBXGroup;
 			children = (
+				AFAE22B4206B79CC00AB87DD /* TLeaksFinder */,
 				AFAE229E206B79A200AB87DD /* AppDelegate.h */,
 				AFAE229F206B79A200AB87DD /* AppDelegate.m */,
 				AFAE22A1206B79A200AB87DD /* ViewController.h */,
 				AFAE22A2206B79A200AB87DD /* ViewController.m */,
+				AFAE22BB206B7A3500AB87DD /* TLeakBeginViewController.h */,
+				AFAE22BC206B7A3500AB87DD /* TLeakBeginViewController.m */,
 				AFAE22A4206B79A200AB87DD /* Main.storyboard */,
 				AFAE22A7206B79A200AB87DD /* Assets.xcassets */,
 				AFAE22A9206B79A200AB87DD /* LaunchScreen.storyboard */,
@@ -69,6 +88,22 @@
 				AFAE22AD206B79A200AB87DD /* main.m */,
 			);
 			path = TPLeakFinder;
+			sourceTree = "<group>";
+		};
+		AFAE22B4206B79CC00AB87DD /* TLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AFAE22C4206B812500AB87DD /* TLeaksFinder.h */,
+				AFAE22B5206B79DE00AB87DD /* LeaksManager.h */,
+				AFAE22B6206B79DE00AB87DD /* LeaksManager.m */,
+				AFAE22B8206B79FA00AB87DD /* ObjectLeakDetector.h */,
+				AFAE22B9206B79FA00AB87DD /* ObjectLeakDetector.m */,
+				AFAE22BE206B7A5D00AB87DD /* UIViewController+Leaks.h */,
+				AFAE22BF206B7A5D00AB87DD /* UIViewController+Leaks.m */,
+				AFAE22C1206B7C4D00AB87DD /* NSObject+Swizzling.h */,
+				AFAE22C2206B7C4D00AB87DD /* NSObject+Swizzling.m */,
+			);
+			path = TLeaksFinder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +177,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFAE22B7206B79DE00AB87DD /* LeaksManager.m in Sources */,
 				AFAE22A3206B79A200AB87DD /* ViewController.m in Sources */,
+				AFAE22C0206B7A5D00AB87DD /* UIViewController+Leaks.m in Sources */,
+				AFAE22C3206B7C4D00AB87DD /* NSObject+Swizzling.m in Sources */,
+				AFAE22BD206B7A3500AB87DD /* TLeakBeginViewController.m in Sources */,
 				AFAE22AE206B79A200AB87DD /* main.m in Sources */,
 				AFAE22A0206B79A200AB87DD /* AppDelegate.m in Sources */,
+				AFAE22BA206B79FA00AB87DD /* ObjectLeakDetector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RNL7SY23B3;
 				INFOPLIST_FILE = TPLeakFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meum.Test.TPLeakFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -295,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RNL7SY23B3;
 				INFOPLIST_FILE = TPLeakFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meum.Test.TPLeakFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
