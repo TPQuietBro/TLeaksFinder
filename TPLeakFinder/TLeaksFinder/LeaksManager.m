@@ -45,10 +45,11 @@
 }
 
 - (void)pong:(NSNotification *)noti{
-
+#if debug
     NSObject *obj = noti.object;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TLeaksFinder" message:NSStringFromClass([obj class]) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+#endif
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pong" object:nil];

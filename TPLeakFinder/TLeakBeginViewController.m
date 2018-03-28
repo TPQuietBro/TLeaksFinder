@@ -24,10 +24,10 @@
 #pragma mark - init methods
 
 - (void)initSubviews{
-    //self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(test) userInfo:nil repeats:true];
-    self.block = ^{
-        self.index = 5;
-    };
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(test) userInfo:nil repeats:true];
+//    self.block = ^{
+//        self.index = 5;
+//    };
 }
 - (void)test{
     NSLog(@"timer is still alive");
