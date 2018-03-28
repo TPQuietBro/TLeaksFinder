@@ -19,6 +19,7 @@
 }
 - (void)ping:(NSNotification *)noti{
     //NSLog(@"在发送pong");
+    //这里目的只是为了只执行一次
     if (_failedCount > 3) {
         return;
     }
@@ -30,6 +31,7 @@
     if (![self.weakTarget isOnScreen]) {
         _failedCount ++;
     }
+    //
     if (_failedCount > 3) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pong" object:self.weakTarget];
         

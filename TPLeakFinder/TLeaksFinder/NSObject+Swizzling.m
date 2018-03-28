@@ -40,6 +40,7 @@
 - (ObjectLeakDetector *)detector{
     return objc_getAssociatedObject(self, @selector(detector));
 }
+//给 当前类 添加 detector,并且开启监测
 - (void)markObject{
     
     if (self.detector) {
