@@ -11,16 +11,13 @@
 #import <objc/message.h>
 @implementation UIViewController (Leaks)
 + (void)load{
-    [self swizzleSEL:@selector(viewDidAppear:) withSEL:@selector(t_viewDidAppear:)];
     [self swizzleSEL:@selector(presentViewController:animated:completion:) withSEL:@selector(t_presentViewController:animated:completion:)];
-}
-
-- (void)t_viewDidAppear:(BOOL)animated{
-    //[self markObject];
 }
 - (void)t_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion{
     [self t_presentViewController:viewControllerToPresent animated:flag completion:completion];
+    #if DEBUG
     [viewControllerToPresent markObject];
+    #endif
 }
 //如果当前controller还在屏幕上
 - (BOOL)isOnScreen{
@@ -35,8 +32,7 @@
     if ([v isKindOfClass:[UIWindow class]]) {
         visibleOnScreen = true;
     }
-    
-    
+
     BOOL beingHeld = false;
     if (self.navigationController != nil || self.presentingViewController != nil) {
         beingHeld = true;
@@ -46,7 +42,6 @@
     if (visibleOnScreen == false && beingHeld == false) {
         alive = false;
     }
-    
     return alive;
 }
 

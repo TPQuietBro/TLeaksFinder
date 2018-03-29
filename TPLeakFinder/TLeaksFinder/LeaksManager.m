@@ -34,8 +34,9 @@
     if (self.timer) {
         return;
     }
-    
+
     self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(sendPing) userInfo:nil repeats:YES];
+
 }
 
 - (void)sendPing
@@ -45,11 +46,11 @@
 }
 
 - (void)pong:(NSNotification *)noti{
-#if debug
+    
     NSObject *obj = noti.object;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TLeaksFinder" message:NSStringFromClass([obj class]) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops! A leak here" message:NSStringFromClass([obj class]) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
-#endif
+
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pong" object:nil];
