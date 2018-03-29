@@ -9,7 +9,7 @@
 #import "ObjectLeakDetector.h"
 #import "NSObject+Swizzling.h"
 @interface ObjectLeakDetector()
-@property(assign,nonatomic) NSInteger failedCount;
+@property(assign,nonatomic) NSInteger pingCount;
 @end
 @implementation ObjectLeakDetector
 - (void)sendLeakDetectedNotifacation:(NSObject *)detector{
@@ -20,7 +20,7 @@
 - (void)ping:(NSNotification *)noti{
     //NSLog(@"在发送pong");
     //这里目的只是为了只执行一次
-    if (_failedCount > 3) {
+    if (_pingCount > 3) {
         return;
     }
     if (!self.weakTarget) {
@@ -29,10 +29,10 @@
     
     //如果当前控制器还在屏幕显示就停止
     if (![self.weakTarget isOnScreen]) {
-        _failedCount ++;
+        _pingCount ++;
     }
-    //
-    if (_failedCount > 3) {
+    //这里不立马就发送,延迟一会儿弹出
+    if (_pingCount > 3) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"pong" object:self.weakTarget];
         
     }
